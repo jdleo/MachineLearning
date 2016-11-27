@@ -12,14 +12,14 @@ import matplotlib.pyplot as plt
 from matplotlib import style
 
 #user enters stock symbol, and we format it for quandl
-stockSymbol = input("Enter a stock symbol you want to predict for (Ex: AAPL): ")
+stockSymbol = raw_input("Enter a stock symbol you want to predict for (Ex: AAPL): ")
 qCode = 'WIKI/{}'.format(stockSymbol)
 
 #how far do we want to forecast out?
 print("How far do you want to forecast out? (must be a float value)")
-out = float(input("Example: If a stock has been public for 300 days, 0.1 will forecast 30 days out"))
+out = float(raw_input("Example: If a stock has been public for 300 days, 0.1 will forecast 30 days out"))
 
-df = qandl.get(qCode)
+df = quandl.get(qCode)
 
 #keep relevant columns for testing
 df = df[['Adj. Open', 'Adj. High', 'Adj. Low', 'Adj. Close', 'Adj. Volume']]
