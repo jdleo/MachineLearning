@@ -16,8 +16,8 @@ stockSymbol = raw_input("Enter a stock symbol you want to predict for (Ex: AAPL)
 qCode = 'WIKI/{}'.format(stockSymbol)
 
 #how far do we want to forecast out?
-print("How far do you want to forecast out? (must be a float value)")
-out = float(raw_input("Example: If a stock has been public for 300 days, 0.1 will forecast 30 days out"))
+print("###############################\nHow far do you want to forecast out? (must be a float value) (recommended setting: 0.01)")
+out = float(raw_input("Example: If a stock has been public for 3000 days, 0.01 will forecast 30 days out: "))
 
 df = quandl.get(qCode)
 
@@ -41,7 +41,7 @@ df['label'] = df[forecast_column].shift(-forecast_out)
 
 #X for features, y for label. in this case, features will be all data besides our label
 X = np.array(df.drop(['label'], 1))
-X = preprocessing.scale(x)
+X = preprocessing.scale(X)
 X_lately = X[-forecast_out:]
 X = X[:-forecast_out]
 
