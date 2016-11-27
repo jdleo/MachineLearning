@@ -8,7 +8,7 @@ The first program. This program uses linear regression and cross validation to t
 pandas  
 quandl  
 sklearn  
-matplotlib  
+matplotlib 
 ```
 sudo pip install library_name
 ```  
@@ -19,4 +19,14 @@ python stock-prediction.py
 ```  
 Then enter a forecast_out float. Ex: If a stock has been public for 2700 days, 0.01 will forecast 27 days out.  
 It will pop open a graph. The blue lines are historic stocks, green lines are prediction graph.  
-You can pan and zoom on matplotlib as you wish.
+You can pan and zoom on matplotlib as you wish.  
+  
+## Breast Cancer Diagnosis  
+My second ML program. This program is very short and simple. It uses a historic breast cancer data set, with a KNeighbors classifier, trains, tests, and predicts if your patient has a benign or malignant tumor with 96+% confidence. Obviously the 4% error wouldn't be very comforting as a patient, but surprisingly, this works.  
+### Required Frameworks  
+numpy  
+sklearn  
+pandas  
+```  
+sudo pip install library_name  
+```
