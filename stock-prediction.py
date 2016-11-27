@@ -72,11 +72,14 @@ last_unix = last_date.to_datetime()
 one_day = 86400
 next_unix = time.mktime(last_unix.timetuple()) + one_day
 
+#just making a date for each close price
 for i in forecast_set:
   next_date = datetime.datetime.fromtimestamp(next_unix)
   next_unix += one_day
   df.loc[next_date] = [np.nan for _ in range(len(df.columns)-1)] + [i]
 
+
+#PLOT EVERYTHING!
 df['Adj. Close'].plot()
 df['Forecast'].plot()
 plt.legend(loc=4)
