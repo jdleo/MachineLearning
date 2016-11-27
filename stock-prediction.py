@@ -15,9 +15,24 @@ from matplotlib import style
 stockSymbol = input("Enter a stock symbol you want to predict for (Ex: AAPL): ")
 qCode = 'WIKI/{}'.format(stockSymbol)
 
+#how far do we want to forecast out?
+print("How far do you want to forecast out? (must be a float value)")
+out = float(input("Example: If a stock has been public for 300 days, 0.1 will forecast 30 days out"))
+
 df = qandl.get(qCode)
 
 #keep relevant columns for testing
 df = df[['Adj. Open', 'Adj. High', 'Adj. Low', 'Adj. Close', 'Adj. Volume']]
 
+#making new column for High/Low percent which is essentially just the day-to-day pct change
+df['HL_PCT'] = (df['Adj. High'] - df['Adj. Close']) / df['Adj. Close'] * 100.0
 
+#variable for re-use
+forecast_column = 'Adj. Close'
+
+#fill nandata making it a ridiculous outlier
+df.fillna(-99999, inplace=True)
+
+#using our variable we got from user for forecast_out
+forecast_out = int(math.ceil(out*len(df)))
+print("Forecast out: {} days".format(forecast_out))
