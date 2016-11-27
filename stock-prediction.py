@@ -36,3 +36,30 @@ df.fillna(-99999, inplace=True)
 #using our variable we got from user for forecast_out
 forecast_out = int(math.ceil(out*len(df)))
 print("Forecast out: {} days".format(forecast_out))
+
+df['label'] = df[forecast_column].shift(-forecast_out)
+
+#X for features, y for label. in this case, features will be all data besides our label
+X = np.array(df.drop(['label'], 1))
+X = preprocessing.scale(x)
+X_lately = X[-forecast_out:]
+X = X[:-forecast_out]
+
+#drop nan
+df.dropna(inplace=True)
+
+#y = label column
+y = np.array(df['label'])
+
+#train/test using cross validation with a test size of 0.2
+X_train, X_test, y_train, y_test = cross_validation.train_test_split(X,y,test_size=0.2)
+
+#using the Linear Regression classifier. might test with other settings later, but right now were using default params
+clf = LinearRegression()
+clf.fit(X_train, y_train)
+
+#confidence score
+confidence = clf.score(X_test, y_test)
+print("Confidence score for this stock prediction: {}".format(confidence))
+
+
