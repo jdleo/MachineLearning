@@ -30,6 +30,8 @@ pandas
 ```  
 sudo pip install library_name  
 ```  
+Source:  
+> Holberg, William H., Dr. "Breast Cancer Wisconsin (Diagnosis) Data Set." UCI Machine Learning Repository. November 1, 1995. https://archive.ics.uci.edu/ml/datasets/Breast Cancer Wisconsin (Diagnostic). 
 ### Usage  
 download/copy breast-cancer.py AND breastcancerdata.txt in the same dir  
 ```
