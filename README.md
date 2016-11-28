@@ -29,4 +29,12 @@ sklearn
 pandas  
 ```  
 sudo pip install library_name  
+```  
+### Usage  
+download/copy breast-cancer.py AND breastcancerdata.txt in the same dir  
 ```
+python breast-cancer.py  
+```  
+Then enter the tumor classifiers back-to-back. There should be 9 digits scoring 1-10 each.
+For example: You can enter 123222343  
+
