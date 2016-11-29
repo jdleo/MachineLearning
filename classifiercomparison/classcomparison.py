@@ -54,6 +54,7 @@ for clf in classifiers:
 
 	clf.fit(X_train, y_train)
 	confidence = clf.score(X_test, y_test)
-	example_measures = np.array([4,3,2,1,5])
+	example_measures = np.array([3,4,3,2,3]) #should be class [1]
+	example_measures = example_measures.reshape(1,-1)
 	prediction = clf.predict(example_measures)
 	print("Confidence score for {} is {} with a prediction of {}".format(clf, confidence, prediction))
