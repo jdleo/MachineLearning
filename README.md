@@ -43,4 +43,9 @@ python breast-cancer.py
 ```  
 Then enter the tumor classifiers back-to-back. There should be 9 digits scoring 1-10 each.
 For example: You can enter 123222343  
+  
+  
+## Classifier Comparison  
+I randomly generated a csv style data set, each line being in a,b,c,d,e,class format. The goal here is to test which classifier would be best for pattern recognition of a synthetic data set. The class is determined by the sum of the previous 5 numbers in the set. It goes through a divisor test in this order -> 5,4,3,2,prime . Classes are 1,2,3,4,5
+
 
